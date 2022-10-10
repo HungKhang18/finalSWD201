@@ -24,7 +24,7 @@ import currencies from "cldr-numbers-full/main/es/currencies.json";
 import caGregorian from "cldr-dates-full/main/es/ca-gregorian.json";
 import timeZoneNames from "cldr-dates-full/main/es/timeZoneNames.json";
 import { getPosts } from "components/MentorSlotPage/MentorSlotPageTableSlice.js";
-
+import axios from "axios";
 load(
   likelySubtags,
   currencyData,
@@ -37,10 +37,23 @@ load(
 );
 
 const MentorSlotPageTable = () => {
-  const { posts, loading } = useSelector((state) => state.post); // Du lieu dang array
-  const dispatch = useDispatch();
+  const [a, setA] = useState([]);
+
   useEffect(() => {
-    dispatch(getPosts());
+    axios
+      .get("https://6331a1443ea4956cfb635d5f.mockapi.io/api/test/tableSlot")
+      .then((res) => {
+        setA(
+          res.data.map((dataItem) => ({
+            ...dataItem,
+            Start: parseAdjust(dataItem.Start),
+            End: parseAdjust(dataItem.End),
+          }))
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   const customModelFields = {
@@ -66,12 +79,10 @@ const MentorSlotPageTable = () => {
 
   const displayDate = new Date(Date.UTC(currentYear, 5, 24));
 
-  const sampleDataWithCustomSchema = posts.map((dataItem) => ({
+  const sampleDataWithCustomSchema = a.map((dataItem) => ({
     ...dataItem,
     Start: parseAdjust(dataItem.Start),
     End: parseAdjust(dataItem.End),
-    PersonIDs: randomInt(1, 2),
-    RoomID: randomInt(1, 2),
   }));
 
   const timezones = React.useMemo(() => timezoneNames(), []);
@@ -91,6 +102,7 @@ const MentorSlotPageTable = () => {
   const [timezone, setTimezone] = React.useState("Etc/UTC");
   const [orientation, setOrientation] = React.useState("horizontal");
   const [data, setData] = React.useState(sampleDataWithCustomSchema);
+  // console.log(a);
   const handleViewChange = React.useCallback(
     (event) => {
       setView(event.value);
@@ -103,12 +115,24 @@ const MentorSlotPageTable = () => {
     },
     [setDate]
   );
+  const handleLocaleChange = React.useCallback(
+    (event) => {
+      setLocale(event.target.value);
+    },
+    [setLocale]
+  );
+  const handleTimezoneChange = React.useCallback(
+    (event) => {
+      setTimezone(event.target.value);
+    },
+    [setTimezone]
+  );
   const handleOrientationChange = React.useCallback((event) => {
     setOrientation(event.target.getAttribute("data-orientation"));
   }, []);
   const handleDataChange = React.useCallback(
     ({ created, updated, deleted }) => {
-      setData((old) =>
+      setA((old) =>
         old
           .filter(
             (item) =>
@@ -135,7 +159,7 @@ const MentorSlotPageTable = () => {
       <LocalizationProvider language={locale.language}>
         <IntlProvider locale={locale.locale}>
           <Scheduler
-            data={data}
+            data={a}
             onDataChange={handleDataChange}
             view={view}
             onViewChange={handleViewChange}
@@ -153,7 +177,6 @@ const MentorSlotPageTable = () => {
           </Scheduler>
         </IntlProvider>
       </LocalizationProvider>
-      {console.log(data)}
     </div>
   );
 };

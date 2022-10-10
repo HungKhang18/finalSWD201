@@ -12,25 +12,8 @@ function MentorSlotPage() {
   return (
     <>
       <header>
-        {/* <Button onClick={handleShow} variant="outline-success">
-          Create slot
-        </Button> */}
         <MentorslotPageTable />
       </header>
-
-      {/* <Modal show={show} onHide={handleClose}>
-        <Modal.Header>
-          <Modal.Title></Modal.Title>{" "}
-        </Modal.Header>
-        <Modal.Body>
-          <AddForm />
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close Button
-          </Button>
-        </Modal.Footer>
-      </Modal> */}
     </>
   );
 }
