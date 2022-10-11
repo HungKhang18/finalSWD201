@@ -37,13 +37,13 @@ load(
 );
 
 const MentorSlotPageTable = () => {
-  const [a, setA] = useState([]);
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     axios
       .get("https://6331a1443ea4956cfb635d5f.mockapi.io/api/test/tableSlot")
       .then((res) => {
-        setA(
+        setPosts(
           res.data.map((dataItem) => ({
             ...dataItem,
             Start: parseAdjust(dataItem.Start),
@@ -79,11 +79,11 @@ const MentorSlotPageTable = () => {
 
   const displayDate = new Date(Date.UTC(currentYear, 5, 24));
 
-  const sampleDataWithCustomSchema = a.map((dataItem) => ({
-    ...dataItem,
-    Start: parseAdjust(dataItem.Start),
-    End: parseAdjust(dataItem.End),
-  }));
+  // const sampleDataWithCustomSchema = a.map((dataItem) => ({
+  //   ...dataItem,
+  //   Start: parseAdjust(dataItem.Start),
+  //   End: parseAdjust(dataItem.End),
+  // }));
 
   const timezones = React.useMemo(() => timezoneNames(), []);
   const locales = [
@@ -101,7 +101,7 @@ const MentorSlotPageTable = () => {
   const [locale, setLocale] = React.useState(locales[0]);
   const [timezone, setTimezone] = React.useState("Etc/UTC");
   const [orientation, setOrientation] = React.useState("horizontal");
-  const [data, setData] = React.useState(sampleDataWithCustomSchema);
+  // const [data, setData] = React.useState(sampleDataWithCustomSchema);
   // console.log(a);
   const handleViewChange = React.useCallback(
     (event) => {
@@ -132,7 +132,7 @@ const MentorSlotPageTable = () => {
   }, []);
   const handleDataChange = React.useCallback(
     ({ created, updated, deleted }) => {
-      setA((old) =>
+      setPosts((old) =>
         old
           .filter(
             (item) =>
@@ -152,14 +152,14 @@ const MentorSlotPageTable = () => {
           )
       );
     },
-    [setData]
+    [setPosts]
   );
   return (
     <div>
       <LocalizationProvider language={locale.language}>
         <IntlProvider locale={locale.locale}>
           <Scheduler
-            data={a}
+            data={posts}
             onDataChange={handleDataChange}
             view={view}
             onViewChange={handleViewChange}
@@ -169,6 +169,7 @@ const MentorSlotPageTable = () => {
             timezone={timezone}
             modelFields={customModelFields}
           >
+          {console.log(posts)}
             <TimelineView />
             <DayView />
             <WeekView />
