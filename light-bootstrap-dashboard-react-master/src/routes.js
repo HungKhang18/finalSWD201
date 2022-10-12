@@ -20,6 +20,7 @@ import Mentee from "pages/Mentee/Mentee.js";
 import Message from "pages/Message/Message.js";
 import Profile from "pages/Profile/Profile.js";
 import MentorSlotPage from "pages/MentorSlotPage/MentorSlotPage.js";
+import ScheduleMentorPage from "pages/ScheduleMentorPage/ScheduleMentorPage.js";
 import { Route } from "react-router";
 const dashboardRoutes = [
   {
@@ -55,6 +56,13 @@ const dashboardRoutes = [
     name: "MentorSlotPage",
     icon: "nc-icon nc-chart-pie-35",
     component: MentorSlotPage,
+    layout: "/admin",
+  },
+  {
+    path: "/schedule-mentor-page",
+    name: "ScheduleMentorPage",
+    icon: "nc-icon nc-chart-pie-35",
+    component: ScheduleMentorPage,
     layout: "/admin",
   },
 ];

@@ -3,6 +3,8 @@
   "version": "2.0.1",
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.15.2",
+    "@fullcalendar/core": "^5.11.3",
+    "@fullcalendar/daygrid": "^5.11.3",
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
     "@mobiscroll/react-lite": "^4.10.9",
@@ -26,6 +28,7 @@
     "@syncfusion/ej2-material-theme": "^20.3.48",
     "@syncfusion/ej2-react-schedule": "^20.3.47",
     "@y0c/react-datepicker": "^1.0.4",
+    "antd": "^4.23.5",
     "axios": "^0.27.2",
     "bootstrap": "4.6.0",
     "chartist": "0.11.4",
@@ -48,6 +51,7 @@
     "react-datepicker": "^4.8.0",
     "react-dom": ">=16.8.0",
     "react-notification-alert": "0.0.13",
+    "react-notifications": "^1.7.4",
     "react-redux": "^8.0.4",
     "react-router": "5.2.0",
     "react-router-dom": "^5.2.0",
@@ -55,7 +59,8 @@
     "react-table": "^7.8.0",
     "reactstrap": "8.8.1",
     "redux": "^4.2.0",
-    "sass": "1.53.0"
+    "sass": "1.53.0",
+    "use-toast-notification": "^0.1.3"
   },
   "optionalDependencies": {
     "jquery": "3.5.1",

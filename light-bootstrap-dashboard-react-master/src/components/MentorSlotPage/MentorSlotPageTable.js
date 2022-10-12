@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { guid } from "@progress/kendo-react-common";
 import { timezoneNames } from "@progress/kendo-date-math";
+
 import {
   IntlProvider,
   load,
@@ -23,7 +24,7 @@ import dateFields from "cldr-dates-full/main/es/dateFields.json";
 import currencies from "cldr-numbers-full/main/es/currencies.json";
 import caGregorian from "cldr-dates-full/main/es/ca-gregorian.json";
 import timeZoneNames from "cldr-dates-full/main/es/timeZoneNames.json";
-import { getPosts } from "components/MentorSlotPage/MentorSlotPageTableSlice.js";
+
 import axios from "axios";
 load(
   likelySubtags,
@@ -101,8 +102,7 @@ const MentorSlotPageTable = () => {
   const [locale, setLocale] = React.useState(locales[0]);
   const [timezone, setTimezone] = React.useState("Etc/UTC");
   const [orientation, setOrientation] = React.useState("horizontal");
-  const [data, setData] = React.useState(sampleDataWithCustomSchema);
-  // console.log(a);
+
   const handleViewChange = React.useCallback(
     (event) => {
       setView(event.value);
@@ -152,8 +152,9 @@ const MentorSlotPageTable = () => {
           )
       );
     },
-    [setData]
+    [setA]
   );
+
   return (
     <div>
       <LocalizationProvider language={locale.language}>
