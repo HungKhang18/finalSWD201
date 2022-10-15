@@ -38,7 +38,7 @@ load(
 );
 
 const MentorSlotPageTable = () => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]); // Get data lịch đã được mentor set sẵn
 
   useEffect(() => {
     axios

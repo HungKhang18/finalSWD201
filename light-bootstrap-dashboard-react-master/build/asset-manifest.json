@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.a1cd6d0c.css",
-    "main.js": "/static/js/main.672405c6.js",
+    "main.css": "/static/css/main.ac096516.css",
+    "main.js": "/static/js/main.846d169d.js",
     "static/media/wolfBackground.jpg": "/static/media/wolfBackground.e7f6895308a93fcc386b.jpg",
     "static/media/fa-solid-900.svg": "/static/media/fa-solid-900.0454203f26b33fc02e2b.svg",
     "static/media/fa-brands-400.svg": "/static/media/fa-brands-400.991c1c761fc31f9c3252.svg",
@@ -32,7 +32,7 @@
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/css/main.a1cd6d0c.css",
-    "static/js/main.672405c6.js"
+    "static/css/main.ac096516.css",
+    "static/js/main.846d169d.js"
   ]
 }
