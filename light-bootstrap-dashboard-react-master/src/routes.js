@@ -21,7 +21,7 @@ import Message from "pages/Message/Message.js";
 import Profile from "pages/Profile/Profile.js";
 import MentorSlotPage from "pages/MentorSlotPage/MentorSlotPage.js";
 import ScheduleMentorPage from "pages/ScheduleMentorPage/ScheduleMentorPage.js";
-import { Route } from "react-router";
+import ListRequestMenteePage from "pages/ListRequestMenteePage/ListRequestMenteePage.js";
 const dashboardRoutes = [
   {
     path: "/mentor",
@@ -63,6 +63,13 @@ const dashboardRoutes = [
     name: "ScheduleMentorPage",
     icon: "nc-icon nc-chart-pie-35",
     component: ScheduleMentorPage,
+    layout: "/admin",
+  },
+   {
+    path: "/list-request-mentee",
+    name: "List Request Mentee",
+    icon: "nc-icon nc-chart-pie-35",
+    component: ListRequestMenteePage,
     layout: "/admin",
   },
 ];

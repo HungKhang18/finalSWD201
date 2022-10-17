@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { guid } from "@progress/kendo-react-common";
 import { timezoneNames } from "@progress/kendo-date-math";
 
