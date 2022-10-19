@@ -290,7 +290,7 @@ function Profile() {
                     <img
                       alt="..."
                       className="avatar border-gray"
-                      src={require("assets/img/faces/avata.jpg")}
+                      src={require("assets/img/faces/face-7.jpg")}
                     ></img>
                     <h5 className="title">HUng KHan</h5>
                   </a>
